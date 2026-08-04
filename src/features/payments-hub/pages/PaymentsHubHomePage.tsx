@@ -21,12 +21,6 @@ const icons = {
       <path d="M8 4h8l2 2v14H6V4h2zM9 10h6M9 14h6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
-  fx: (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <rect x="2" y="6" width="20" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" />
-      <path d="M2 10h20M6 14h4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    </svg>
-  ),
   dashboard: (
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M5 19V9M12 19V5M19 19v-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -52,7 +46,7 @@ export default function PaymentsHubHomePage() {
       <Box
         sx={{
           display: 'grid',
-          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' },
+          gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' },
           gap: 2,
         }}
       >
@@ -82,18 +76,6 @@ export default function PaymentsHubHomePage() {
           ]}
           ctaLabel="Ir a Pagar"
           onClick={() => navigate('/payments-hub/invoices')}
-        />
-        <HubActionCard
-          accent="teal"
-          icon={icons.fx}
-          title="Facturas en Otra Moneda"
-          description="Pague facturas asociadas a financiaciones en monedas diferentes al dólar americano. Soporte para EUR, GBP, JPY y más divisas."
-          stats={[
-            { label: 'Monedas disponibles', value: data.availableCurrencies },
-            { label: 'Facturas pendientes', value: String(data.foreignCurrencyInvoices) },
-          ]}
-          ctaLabel="Ir a Pagar"
-          onClick={() => navigate('/payments-hub/invoices?foreign=true')}
         />
         <HubActionCard
           accent="orange"

@@ -6,6 +6,7 @@ export default function DashboardHomePage() {
 
   return (
     <HubDashboardSelector
+      onReconciliation={() => navigate('/payments-hub/dashboard/reconciliation')}
       onFinancings={() => navigate('/payments-hub/dashboard/financings')}
       onInvoices={() => navigate('/payments-hub/dashboard/invoices')}
       onBack={() => navigate('/payments-hub')}

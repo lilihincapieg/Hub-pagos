@@ -25,7 +25,12 @@ export default function InvoicesFxQuotePage() {
       return
     }
 
-    createFxQuote({ itemIds: ids, itemType: 'invoice', targetCurrency: 'COP' })
+    createFxQuote({
+      itemIds: ids,
+      itemType: 'invoice',
+      targetCurrency: 'COP',
+      amountOverride: session.payAmountOverride,
+    })
       .then((result) => {
         setQuote(result)
         setFlowSession({ fxQuote: result })
@@ -42,6 +47,12 @@ export default function InvoicesFxQuotePage() {
     return () => window.clearInterval(timer)
   }, [quote])
 
+  const session = getFlowSession()
+  const railLabel =
+    session.paymentRail === 'payops'
+      ? 'Riel: PayOps (transferencia internacional)'
+      : 'Riel: Paga Local'
+
   if (loading) return <HubLoadingState message="Generando cotización de divisas..." />
   if (error) return <HubErrorState message={error} onRetry={() => navigate('/payments-hub/invoices')} />
   if (!quote) return null
@@ -49,7 +60,9 @@ export default function InvoicesFxQuotePage() {
   return (
     <Box sx={{ maxWidth: 960, mx: 'auto' }}>
       <HubBreadcrumbs backLabel="Volver a Facturas" onBack={() => navigate('/payments-hub/invoices')} onHome={() => navigate('/payments-hub')} />
-      <HubContextBar>País: Colombia | Moneda de cobro: COP (Peso colombiano)</HubContextBar>
+      <HubContextBar>
+        País: Colombia | Moneda de cobro: COP | {railLabel}
+      </HubContextBar>
       <HubPageTitle centered title="Cotización de Divisas" subtitle="La cotización es válida por 1 minuto. Acepte antes de que expire para asegurar estas tasas." />
       <HubQuotePanel quote={quote} secondsRemaining={secondsRemaining} />
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ mt: 3, justifyContent: 'center' }}>

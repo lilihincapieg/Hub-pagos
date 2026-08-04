@@ -5,12 +5,14 @@ import FinancingsFxQuotePage from './pages/financings/FinancingsFxQuotePage'
 import FinancingsCheckoutPage from './pages/financings/FinancingsCheckoutPage'
 import FinancingsConfirmationPage from './pages/financings/FinancingsConfirmationPage'
 import InvoicesListPage from './pages/invoices/InvoicesListPage'
+import InvoiceDirectQuoteFlowPage from './pages/invoices/InvoiceDirectQuoteFlowPage'
 import InvoicesFxQuotePage from './pages/invoices/InvoicesFxQuotePage'
 import InvoicesCheckoutPage from './pages/invoices/InvoicesCheckoutPage'
 import InvoicesConfirmationPage from './pages/invoices/InvoicesConfirmationPage'
 import DashboardHomePage from './pages/dashboard/DashboardHomePage'
 import DashboardFinancingsPage from './pages/dashboard/DashboardFinancingsPage'
 import DashboardInvoicesPage from './pages/dashboard/DashboardInvoicesPage'
+import DashboardReconciliationPage from './pages/dashboard/DashboardReconciliationPage'
 
 export const paymentsHubRoutes: RouteObject[] = [
   { index: true, element: <PaymentsHubHomePage /> },
@@ -19,10 +21,12 @@ export const paymentsHubRoutes: RouteObject[] = [
   { path: 'financings/checkout', element: <FinancingsCheckoutPage /> },
   { path: 'financings/confirmation', element: <FinancingsConfirmationPage /> },
   { path: 'invoices', element: <InvoicesListPage /> },
+  { path: 'invoices/nueva-cotizacion', element: <InvoiceDirectQuoteFlowPage /> },
   { path: 'invoices/fx-quote', element: <InvoicesFxQuotePage /> },
   { path: 'invoices/checkout', element: <InvoicesCheckoutPage /> },
   { path: 'invoices/confirmation', element: <InvoicesConfirmationPage /> },
   { path: 'dashboard', element: <DashboardHomePage /> },
+  { path: 'dashboard/reconciliation', element: <DashboardReconciliationPage /> },
   { path: 'dashboard/financings', element: <DashboardFinancingsPage /> },
   { path: 'dashboard/invoices', element: <DashboardInvoicesPage /> },
 ]

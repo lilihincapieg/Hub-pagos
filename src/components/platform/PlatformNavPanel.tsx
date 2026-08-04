@@ -76,7 +76,12 @@ export default function PlatformNavPanel() {
 
         <PanelCard
           title="Pagos y cobranzas"
-          sx={{ borderColor: 'secondary.lighter', bgcolor: 'primary.50' }}
+          sx={{
+            borderColor: 'secondary.main',
+            bgcolor: 'primary.50',
+            borderWidth: 2,
+            boxShadow: '0 8px 24px rgba(60, 71, 211, 0.12)',
+          }}
         >
           <Box
             sx={{
@@ -96,7 +101,7 @@ export default function PlatformNavPanel() {
             </svg>
           </Box>
           <Typography variant="body2" color="text.secondary" sx={{ mt: 1, mb: 2 }}>
-            Gestione financiaciones, facturas y pagos en moneda local desde un solo lugar.
+            Vea alertas de cashflow y pague financiaciones o facturas con datos que Finkargo ya tiene.
           </Typography>
           <Button variant="primary" onClick={() => navigate('/payments-hub')}>
             Ir al Hub de Pagos
